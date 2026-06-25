@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação ThermoPredict</title>
+    
+    <!-- FONTES E ÍCONES COLETIVOS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- VÍNCULO COM O ARQUIVO CSS EXTERNO -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SLIDE 1: CAPA -->
+    <div class="slide-container" id="slide1">
+        <div class="content-area" style="text-align: center;">
+            <h1>ThermoPredict</h1>
+            <p class="subtitle" style="font-size: 30px; margin-top: 20px;">Monitoramento Inteligente e Conectividade para a Cadeia de Frio</p>
+            <div style="width: 100px; height: 8px; background-color: var(--accent-green); margin: 40px auto;"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: O DESAFIO -->
+    <div class="slide-container" id="slide2">
+        <h2 class="slide-title">O Desafio da Cadeia de Frio</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>Perdas Críticas</h3>
+                    <p>Anualmente, milhões de doses de vacinas são inutilizadas devido a falhas no controle térmico.</p>
+                    <p>Cerca de <strong>20% dos produtos sensíveis</strong> são danificados durante a logística, resultando em riscos biológicos e prejuízos financeiros massivos.</p>
+                </div>
+                <div class="image-wrapper">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/2352333403003407209" alt="Medical vaccine vials wastage">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: LIMITAÇÕES ATUAIS -->
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Limitações Atuais</h2>
+        <div class="content-area">
+            <div class="two-column tiled">
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-user-xmark"></i></div>
+                    <h3>Falhas Humanas</h3>
+                    <p>Registros manuais são imprecisos, descontínuos e sujeitos a esquecimentos ou erros de anotação.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-eye-slash"></i></div>
+                    <h3>Zonas Cegas</h3>
+                    <p>Durante o transporte, gestores perdem a visibilidade em tempo real sobre a integridade térmica dos insumos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: O MODELO -->
+    <div class="slide-container" id="slide4">
+        <h2 class="slide-title">O Modelo ThermoPredict</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>Design Inteligente</h3>
+                    <p>O ThermoPredict é uma solução compacta integrada diretamente em coolers térmicos profissionais.</p>
+                    <p>Com um <strong>Display LCD central</strong>, permite monitorar temperatura (ex: 4.5°C), carga da bateria e status de segurança (tampa aberta/fechada) sem necessidade de dispositivos externos.</p>
+                </div>
+                <div class="image-wrapper" style="height: 450px;">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/6914540210470244921" alt="ThermoPredict smart cooler render" style="object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: FUNCIONAMENTO DO SISTEMA -->
+    <div class="slide-container" id="slide5">
+        <h2 class="slide-title">Funcionamento do Sistema</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile" style="flex: 1;">
+                    <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Captura</h3>
+                    <p>Sensores DS18B20 capturam a temperatura com precisão de ±0.5°C a cada 10 segundos.</p>
+                </div>
+                <div class="tile" style="flex: 1;">
+                    <div class="icon"><i class="fa-solid fa-wifi"></i></div>
+                    <h3>Processamento</h3>
+                    <p>O microcontrolador ESP32 gerencia a lógica e envia os dados via WiFi para a nuvem.</p>
+                </div>
+                <div class="tile" style="flex: 1;">
+                    <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h3>Plataforma</h3>
+                    <p>A plataforma Render recebe os dados, gera gráficos históricos e envia alertas imediatos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: EFICÁCIA NO MONITORAMENTO -->
+    <div class="slide-container" id="slide6">
+        <h2 class="slide-title">Eficácia no Monitoramento</h2>
+        <div class="content-area">
+            <div class="chart-container">
+                <div class="bar">
+                    <div class="label">Monitoramento Manual</div>
+                    <div class="bar-inner"><div class="bar-fill" style="width: 40%;">40% Cobertura</div></div>
+                </div>
+                <div class="bar">
+                    <div class="label">Termômetro Digital Local</div>
+                    <div class="bar-inner"><div class="bar-fill" style="width: 60%;">60% Cobertura</div></div>
+                </div>
+                <div class="bar">
+                    <div class="label">ThermoPredict IoT</div>
+                    <div class="bar-inner"><div class="bar-fill" style="width: 100%; background-color: var(--accent-green);">100% Cobertura</div></div>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-style: italic;">Garantia de monitoramento contínuo 24 horas por dia, 7 dias por semana.</p>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+        SLIDE 7: ESTABILIDADE TÉRMICA
+    ========================================================== -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Estabilidade Térmica</h2>
+    <div class="content-area">
+        <div class="dashboard-grid">
+            <!-- GRÁFICO CIRCULAR -->
+            <div class="dashboard-card">
+                <h3>Integridade Térmica</h3>
+                <div class="circular-chart">
+                    <svg width="280" height="280">
+
+                        <circle
+                            class="circle-bg"
+                            cx="140"
+                            cy="140"
+                            r="110">
+                        </circle>
+
+                        <circle
+                            class="circle-progress"
+                            cx="140"
+                            cy="140"
+                            r="110">
+                        </circle>
+                    </svg>
+                    <div class="circle-value">
+                        <span id="tempPercent">96%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRÁFICO DE COLUNAS -->
+            <div class="dashboard-card">
+                <h3>Temperatura em Tempo Real</h3>
+                <div class="bar-chart-live">
+                    <div class="live-bar">
+                        <span>08h</span>
+                        <div class="bar-fill-live" id="bar1"></div>
+                    </div>
+
+                    <div class="live-bar">
+                        <span>10h</span>
+                        <div class="bar-fill-live" id="bar2"></div>
+                    </div>
+
+                    <div class="live-bar">
+                        <span>12h</span>
+                        <div class="bar-fill-live" id="bar3"></div>
+                    </div>
+
+                    <div class="live-bar">
+                        <span>14h</span>
+                        <div class="bar-fill-live" id="bar4"></div>
+                    </div>
+
+                    <div class="live-bar">
+                        <span>16h</span>
+                        <div class="bar-fill-live" id="bar5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="live-description">
+            Monitoramento inteligente em tempo real com análise preditiva e indicadores dinâmicos.
+        </p>
+    </div>
+</div>
+
+    <!-- SLIDE 8: COMPARATIVO TECNOLÓGICO -->
+    <div class="slide-container" id="slide8">
+        <h2 class="slide-title">Comparativo Tecnológico</h2>
+        <div class="content-area">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recurso</th>
+                        <th>Manual</th>
+                        <th>Termômetro Digital</th>
+                        <th>ThermoPredict</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alertas Online</td>
+                        <td>Não</td>
+                        <td>Não</td>
+                        <td><i class="fa-solid fa-check" style="color:var(--accent-green)"></i> Sim</td>
+                    </tr>
+                    <tr>
+                        <td>Histórico na Nuvem</td>
+                        <td>Não</td>
+                        <td>Não</td>
+                        <td><i class="fa-solid fa-check" style="color:var(--accent-green)"></i> Sim</td>
+                    </tr>
+                    <tr>
+                        <td>Monitoramento de Tampa</td>
+                        <td>Não</td>
+                        <td>Não</td>
+                        <td><i class="fa-solid fa-check" style="color:var(--accent-green)"></i> Sim</td>
+                    </tr>
+                    <tr>
+                        <td>Rastreabilidade GPS</td>
+                        <td>Não</td>
+                        <td>Não</td>
+                        <td><i class="fa-solid fa-check" style="color:var(--accent-green)"></i> Sim</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+        SLIDE 9: EQUIPE THERMOPREDICT
+    ========================================================== -->
+    <div class="slide-container" id="slide9">
+
+        <h2 class="slide-title">A Equipa ThermoPredict</h2>
+
+        <div class="content-area">
+
+            <div class="team-grid">
+
+                <div class="tile member-card">
+                    <div class="image-wrapper member-photo">
+                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+1" alt="Integrante 1">
+                    </div>
+                    <h3>[Nome 1]</h3>
+                    <p>Líder de Projeto & Hardware</p>
+                </div>
+
+                <div class="tile member-card">
+                    <div class="image-wrapper member-photo">
+                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+2" alt="Integrante 2">
+                    </div>
+                    <h3>[Nome 2]</h3>
+                    <p>Cloud Infrastructure</p>
+                </div>
+
+                <div class="tile member-card">
+                    <div class="image-wrapper member-photo">
+                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+3" alt="Integrante 3">
+                    </div>
+                    <h3>[Nome 3]</h3>
+                    <p>UI/UX & Frontend</p>
+                </div>
+
+                <div class="tile member-card">
+                    <div class="image-wrapper member-photo">
+                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+4" alt="Integrante 4">
+                    </div>
+                    <h3>[Nome 4]</h3>
+                    <p>Ciência de Dados</p>
+                </div>
+
+                <div class="tile member-card">
+                    <div class="image-wrapper member-photo">
+                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+5" alt="Integrante 5">
+                    </div>
+                    <h3>[Nome 5]</h3>
+                    <p>Backend & Integrações</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: TECNOLOGIAS CHAVE -->
+    <div class="slide-container" id="slide10">
+        <h2 class="slide-title">Tecnologias Chave</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile" style="flex: 1;">
+                    <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/18118194736174458392" alt="ESP32 microcontroller">
+                    </div>
+                    <h3>Hardware</h3>
+                    <p>ESP32: Potência de processamento e baixo consumo.</p>
+                </div>
+                <div class="tile" style="flex: 1;">
+                    <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
+                        <img src="https://placehold.co/400x200/005088/white?text=Render+Cloud" alt="Cloud Platform">
+                    </div>
+                    <h3>Cloud</h3>
+                    <p>Infraestrutura escalável para milhões de logs.</p>
+                </div>
+                <div class="tile" style="flex: 1;">
+                    <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
+                        <img src="https://placehold.co/400x200/10B981/white?text=Alerts+System" alt="Alerts">
+                    </div>
+                    <h3>Alertas</h3>
+                    <p>Notificações instantâneas via Webhooks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: IMPACTO ESPERADO -->
+    <div class="slide-container" id="slide11">
+        <h2 class="slide-title">Impacto Esperado</h2>
+        <div class="content-area">
+            <div class="two-column highlight-numbers-layout">
+                <div style="text-align: center;">
+                    <div class="number">90%</div>
+                    <div class="number-label">Redução de Desperdício</div>
+                </div>
+                <div>
+                    <h3>Valor Agregado</h3>
+                    <p>Ao mitigar falhas térmicas, o ThermoPredict não apenas economiza insumos caros, mas garante que a imunização seja efetiva para a população.</p>
+                    <p><strong>100% de rastreabilidade</strong> do fabricante ao paciente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: ENCERRAMENTO -->
+    <div class="slide-container" id="slide12">
+        <div class="content-area" style="text-align: center;">
+            <h2 style="font-size: 60px;">Perguntas?</h2>
+            <p style="font-size: 24px; margin: 30px 0;">Obrigado pela vossa atenção.</p>
+            <div style="background-color: var(--primary-blue); color: #fff; padding: 20px 40px; border-radius: 50px; font-weight: 700; margin-top: 30px;">
+                thermopredict-dwd9.onrender.com
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+        CONTROLES DE APRESENTAÇÃO
+    ========================================================== -->
+
+    <div id="presentation-controls">
+
+        <button id="prevSlide">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <span id="slideCounter">
+            1 / 12
+        </span>
+
+        <button id="nextSlide">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const slides =
+            document.querySelectorAll(".slide-container");
+
+        let currentSlide = 0;
+
+        function showSlide(index){
+
+            if(index < 0)
+                index = 0;
+
+            if(index >= slides.length)
+                index = slides.length - 1;
+
+            currentSlide = index;
+
+            slides[index].scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            document.getElementById("slideCounter")
+                .textContent =
+                `${index + 1} / ${slides.length}`;
+        }
+
+        document
+            .getElementById("nextSlide")
+            .addEventListener("click", () => {
+
+                showSlide(currentSlide + 1);
+
+            });
+
+        document
+            .getElementById("prevSlide")
+            .addEventListener("click", () => {
+
+                showSlide(currentSlide - 1);
+
+            });
+
+        document.addEventListener("keydown", (e) => {
+
+            if(
+                e.key === "ArrowRight" ||
+                e.key === "PageDown"
+            ){
+                showSlide(currentSlide + 1);
+            }
+
+            if(
+                e.key === "ArrowLeft" ||
+                e.key === "PageUp"
+            ){
+                showSlide(currentSlide - 1);
+            }
+
+        });
+
+    });
+
+    </script>
+
+</body>
+</html>

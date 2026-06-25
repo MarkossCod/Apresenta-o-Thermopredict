@@ -1,0 +1,531 @@
+/* ==========================================================================
+   1. VARIÁVEIS GERAIS E PALETA DE CORES
+   ========================================================================== */
+:root {
+  --primary-blue: #005088;
+  --bg-light: #F8FAFC;
+  --text-dark: #1E293B;
+  --accent-green: #10B981;
+  --gray-muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #cbd5e1;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 60px 0;
+  place-items: center;
+}
+
+/* ==========================================================================
+   2. COMPONENTES DOS SLIDES (RESOLUÇÃO PADRÃO 1280x720)
+   ========================================================================== */
+.slide-container {
+  align-items: center;
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px;
+  position: relative;
+  width: 1280px;
+}
+
+/* ELEMENTOS DECORATIVOS DE FUNDO */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at top right, rgba(0, 80, 136, 0.05), transparent);
+  z-index: 0;
+}
+
+.slide-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--primary-blue);
+  z-index: 0;
+}
+
+.slide-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   3. CONFIGURAÇÕES DE TIPOGRAFIA
+   ========================================================================== */
+.slide-container h1,
+.slide-container h2,
+.slide-container h3 {
+  color: var(--text-dark);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slide-container p,
+.slide-container li,
+.slide-container .subtitle,
+.slide-container th,
+.slide-container td {
+  color: var(--gray-muted);
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.slide-container h1 { 
+  font-size: 70px; 
+  color: var(--primary-blue); 
+}
+
+.slide-container .slide-title { 
+  font-size: 42px; 
+  margin-bottom: 40px; 
+  text-align: left; 
+  width: 100%; 
+  border-left: 10px solid var(--primary-blue); 
+  padding-left: 20px; 
+}
+
+.slide-container h3 { 
+  font-size: 24px; 
+  color: var(--primary-blue); 
+  margin-bottom: 10px; 
+}
+
+/* ==========================================================================
+   4. BLOCOS (TILES) E EFEITOS DE HOVER
+   ========================================================================== */
+.image-wrapper {
+  border-radius: 12px;
+  height: 400px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.image-wrapper:hover {
+  transform: scale(1.03);
+}
+
+.image-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.tile {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.tile:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-green);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   5. COMPONENTES E GRIDS DE ESTRUTURAÇÃO
+   ========================================================================== */
+.content-area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+  align-items: center;
+}
+
+.tiled-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.icon {
+  color: var(--accent-green);
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   6. TABELAS DE COMPARATIVO
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--primary-blue);
+  color: #fff !important;
+  padding: 20px;
+  text-align: left;
+}
+
+td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) { 
+  background-color: #f1f5f9; 
+}
+
+/* ==========================================================================
+   7. GRÁFICOS (CHARTS) E INDICADORES DE DESTAQUE
+   ========================================================================== */
+.chart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bar .label {
+  flex: 0 0 250px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--text-dark);
+}
+
+.bar .bar-inner {
+  background-color: #e2e8f0;
+  border-radius: 8px;
+  flex-grow: 1;
+  height: 40px;
+  overflow: hidden;
+}
+
+.bar .bar-fill {
+  background-color: var(--primary-blue);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  color: white;
+  font-weight: 700;
+}
+
+.area-chart-svg {
+  width: 100%;
+  height: 350px;
+}
+
+/* HIGHLIGHT NUMBERS (STAT CALLOUTS) */
+.highlight-numbers-layout .number {
+  font-size: 120px;
+  color: var(--primary-blue);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.highlight-numbers-layout .number-label {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+/* ==========================================================================
+   8. EQUIPE THERMOPREDICT
+   ========================================================================== */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.member-card {
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.member-photo {
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.member-card h3 {
+    font-size: 20px;
+}
+
+.member-card p {
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   9. ANIMAÇÕES E APRESENTAÇÃO
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.slide-container {
+    animation: slideAppear .8s ease;
+}
+
+@keyframes slideAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ==========================================================================
+   10. CONTROLES DE APRESENTAÇÃO
+   ========================================================================== */
+#presentation-controls {
+
+    position: fixed;
+
+    bottom: 15px;
+
+    right: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: rgba(15,23,42,.85);
+
+    padding: 8px 12px;
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(12px);
+
+    z-index: 9999;
+}
+
+#presentation-controls button {
+
+    width: 32px;
+
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+#presentation-controls button:hover {
+
+    background: rgba(255,255,255,.12);
+
+    transform: scale(1.08);
+}
+
+#slideCounter {
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   DASHBOARD TÉRMICO
+   ========================================================================== */
+
+.dashboard-grid {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    width: 100%;
+
+    align-items: center;
+}
+
+.dashboard-card {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+
+    text-align: center;
+}
+
+/* ==========================================================================
+   GRÁFICO CIRCULAR
+   ========================================================================== */
+
+.circular-chart {
+
+    position: relative;
+
+    width: 280px;
+
+    height: 280px;
+
+    margin: auto;
+}
+
+.circular-chart svg {
+
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+
+    fill: none;
+
+    stroke: #e2e8f0;
+
+    stroke-width: 15;
+}
+
+.circle-progress {
+
+    fill: none;
+
+    stroke: #10B981;
+
+    stroke-width: 15;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 691;
+
+    stroke-dashoffset: 25;
+
+    transition: 1s;
+}
+
+.circle-value {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   GRÁFICO DE COLUNAS
+   ========================================================================== */
+
+.bar-chart-live {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 18px;
+
+    height: 280px;
+}
+
+.live-bar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.bar-fill-live {
+
+    width: 50px;
+
+    height: 150px;
+
+    background: linear-gradient(
+        to top,
+        var(--primary-blue),
+        var(--accent-green)
+    );
+
+    border-radius: 10px 10px 0 0;
+
+    transition: .8s;
+}
+
+.live-description {
+
+    margin-top: 25px;
+
+    font-style: italic;
+}
