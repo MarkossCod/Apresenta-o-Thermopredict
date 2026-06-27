@@ -348,23 +348,7 @@
         const slides = document.querySelectorAll(".slide-container");
         let currentSlide = 0;
 
-        /* ══════════════════════════════════════════════════════════════
-         * ESTRATÉGIA GERAL
-         * Usar transition (CSS) + mudança direta de propriedade via JS.
-         * Isso é universalmente suportado e não depende de var() dentro
-         * de @keyframes (que tem suporte incompleto em muitos browsers).
-         *
-         * Padrão para cada gráfico:
-         *   1. Desliga transition, reseta para o estado "zerado"
-         *   2. Força reflow (void el.offsetWidth)
-         *   3. Liga transition
-         *   4. Define a propriedade para o valor final → browser anima
-         * ══════════════════════════════════════════════════════════════ */
-
-        /* ──────────────────────────────────────────────────────────────
-         * SLIDE 6 — Barras horizontais
-         * Anima a propriedade `width` de 0% até o valor em data-pct.
-         * ────────────────────────────────────────────────────────────── */
+        
         function restartHorizBars() {
             document.querySelectorAll(".bar-fill").forEach((bar, i) => {
                 const pct = (bar.dataset.pct || "100") + "%";
