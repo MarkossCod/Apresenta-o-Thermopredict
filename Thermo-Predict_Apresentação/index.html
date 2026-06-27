@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apresentação ThermoPredict</title>
-    
-    <!-- FONTES E ÍCONES COLETIVOS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- VÍNCULO COM O ARQUIVO CSS EXTERNO -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +32,7 @@
                     <p>Cerca de <strong>20% dos produtos sensíveis</strong> são danificados durante a logística, resultando em riscos biológicos e prejuízos financeiros massivos.</p>
                 </div>
                 <div class="image-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/2352333403003407209" alt="Medical vaccine vials wastage">
+                    <img src="assets/imgs/img-apresentacao.jpg" alt="Medical vaccine vials wastage">
                 </div>
             </div>
         </div>
@@ -72,7 +68,7 @@
                     <p>Com um <strong>Display LCD central</strong>, permite monitorar temperatura (ex: 4.5°C), carga da bateria e status de segurança (tampa aberta/fechada) sem necessidade de dispositivos externos.</p>
                 </div>
                 <div class="image-wrapper" style="height: 450px;">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/6914540210470244921" alt="ThermoPredict smart cooler render" style="object-fit: contain;">
+                    <img src="assets/imgs/Img-modelo3d.png" alt="ThermoPredict smart cooler render" style="object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -103,96 +99,95 @@
     </div>
 
     <!-- SLIDE 6: EFICÁCIA NO MONITORAMENTO -->
+    <!--
+        Cada .bar-fill tem data-pct com o valor final em %.
+        O JS lê esse atributo e aplica como largura via --bar-target,
+        que é usada pelo keyframe growBar para animar até o valor correto.
+    -->
     <div class="slide-container" id="slide6">
         <h2 class="slide-title">Eficácia no Monitoramento</h2>
         <div class="content-area">
             <div class="chart-container">
                 <div class="bar">
                     <div class="label">Monitoramento Manual</div>
-                    <div class="bar-inner"><div class="bar-fill" style="width: 40%;">40% Cobertura</div></div>
+                    <div class="bar-inner">
+                        <div class="bar-fill" data-pct="40">40% Cobertura</div>
+                    </div>
                 </div>
                 <div class="bar">
                     <div class="label">Termômetro Digital Local</div>
-                    <div class="bar-inner"><div class="bar-fill" style="width: 60%;">60% Cobertura</div></div>
+                    <div class="bar-inner">
+                        <div class="bar-fill" data-pct="60">60% Cobertura</div>
+                    </div>
                 </div>
                 <div class="bar">
                     <div class="label">ThermoPredict IoT</div>
-                    <div class="bar-inner"><div class="bar-fill" style="width: 100%; background-color: var(--accent-green);">100% Cobertura</div></div>
+                    <div class="bar-inner">
+                        <div class="bar-fill bar-fill--green" data-pct="100">100% Cobertura</div>
+                    </div>
                 </div>
             </div>
             <p style="margin-top: 30px; font-style: italic;">Garantia de monitoramento contínuo 24 horas por dia, 7 dias por semana.</p>
         </div>
     </div>
 
-    <!-- ==========================================================
-        SLIDE 7: ESTABILIDADE TÉRMICA
-    ========================================================== -->
-<div class="slide-container" id="slide7">
-    <h2 class="slide-title">Estabilidade Térmica</h2>
-    <div class="content-area">
-        <div class="dashboard-grid">
-            <!-- GRÁFICO CIRCULAR -->
-            <div class="dashboard-card">
-                <h3>Integridade Térmica</h3>
-                <div class="circular-chart">
-                    <svg width="280" height="280">
-
-                        <circle
-                            class="circle-bg"
-                            cx="140"
-                            cy="140"
-                            r="110">
-                        </circle>
-
-                        <circle
-                            class="circle-progress"
-                            cx="140"
-                            cy="140"
-                            r="110">
-                        </circle>
-                    </svg>
-                    <div class="circle-value">
-                        <span id="tempPercent">96%</span>
+    <!-- SLIDE 7: ESTABILIDADE TÉRMICA -->
+    <!--
+        Gráfico circular: data-pct="96" → JS calcula dashoffset correto.
+        Barras verticais: data-temp são valores em °C (faixa segura: 2–8°C).
+        A altura visual mapeia: 2°C = mín, 8°C = máx na área do gráfico.
+    -->
+    <div class="slide-container" id="slide7">
+        <h2 class="slide-title">Estabilidade Térmica</h2>
+        <div class="content-area">
+            <div class="dashboard-grid">
+                <!-- GRÁFICO CIRCULAR -->
+                <div class="dashboard-card">
+                    <h3>Integridade Térmica</h3>
+                    <div class="circular-chart">
+                        <svg width="280" height="280" viewBox="0 0 280 280">
+                            <circle class="circle-bg"       cx="140" cy="140" r="110"></circle>
+                            <circle class="circle-progress" cx="140" cy="140" r="110"
+                                    data-pct="96"></circle>
+                        </svg>
+                        <div class="circle-value">96%</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- GRÁFICO DE COLUNAS -->
-            <div class="dashboard-card">
-                <h3>Temperatura em Tempo Real</h3>
-                <div class="bar-chart-live">
-                    <div class="live-bar">
-                        <span>08h</span>
-                        <div class="bar-fill-live" id="bar1"></div>
+                <!-- GRÁFICO DE COLUNAS VIVAS -->
+                <div class="dashboard-card">
+                    <h3>Temperatura em Tempo Real (°C)</h3>
+                    <div class="bar-chart-live">
+                        <!-- data-temp = leitura em °C; faixa de referência: 2–8°C -->
+                        <div class="live-bar">
+                            <div class="bar-fill-live" id="bar1" data-temp="4.5"></div>
+                            <span class="bar-label">08h<br><strong>4.5°C</strong></span>
+                        </div>
+                        <div class="live-bar">
+                            <div class="bar-fill-live" id="bar2" data-temp="5.2"></div>
+                            <span class="bar-label">10h<br><strong>5.2°C</strong></span>
+                        </div>
+                        <div class="live-bar">
+                            <div class="bar-fill-live" id="bar3" data-temp="6.1"></div>
+                            <span class="bar-label">12h<br><strong>6.1°C</strong></span>
+                        </div>
+                        <div class="live-bar">
+                            <div class="bar-fill-live" id="bar4" data-temp="5.5"></div>
+                            <span class="bar-label">14h<br><strong>5.5°C</strong></span>
+                        </div>
+                        <div class="live-bar">
+                            <div class="bar-fill-live" id="bar5" data-temp="5.8"></div>
+                            <span class="bar-label">16h<br><strong>5.8°C</strong></span>
+                        </div>
                     </div>
-
-                    <div class="live-bar">
-                        <span>10h</span>
-                        <div class="bar-fill-live" id="bar2"></div>
-                    </div>
-
-                    <div class="live-bar">
-                        <span>12h</span>
-                        <div class="bar-fill-live" id="bar3"></div>
-                    </div>
-
-                    <div class="live-bar">
-                        <span>14h</span>
-                        <div class="bar-fill-live" id="bar4"></div>
-                    </div>
-
-                    <div class="live-bar">
-                        <span>16h</span>
-                        <div class="bar-fill-live" id="bar5"></div>
-                    </div>
+                    <div class="temp-range-legend">Faixa segura: 2°C – 8°C</div>
                 </div>
             </div>
+            <p class="live-description">
+                Monitoramento inteligente em tempo real com análise preditiva e indicadores dinâmicos.
+            </p>
         </div>
-        <p class="live-description">
-            Monitoramento inteligente em tempo real com análise preditiva e indicadores dinâmicos.
-        </p>
     </div>
-</div>
 
     <!-- SLIDE 8: COMPARATIVO TECNOLÓGICO -->
     <div class="slide-container" id="slide8">
@@ -237,55 +232,45 @@
         </div>
     </div>
 
-    <!-- ==========================================================
-        SLIDE 9: EQUIPE THERMOPREDICT
-    ========================================================== -->
+    <!-- SLIDE 9: EQUIPE THERMOPREDICT -->
     <div class="slide-container" id="slide9">
-
-        <h2 class="slide-title">A Equipa ThermoPredict</h2>
-
+        <h2 class="slide-title">A equipe ThermoPredict</h2>
         <div class="content-area">
-
             <div class="team-grid">
-
                 <div class="tile member-card">
                     <div class="image-wrapper member-photo">
-                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+1" alt="Integrante 1">
+                        <img src="assets/imgs/markos-capa.jpeg" alt="Integrante 1">
                     </div>
-                    <h3>[Nome 1]</h3>
-                    <p>Líder de Projeto & Hardware</p>
+                    <h3>Markos Samuell</h3>
+                    <p>Scrum Master (SM)</p>
                 </div>
-
                 <div class="tile member-card">
                     <div class="image-wrapper member-photo">
-                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+2" alt="Integrante 2">
+                        <img src="assets/imgs/guilherme-capa.png" alt="Integrante 2">
                     </div>
-                    <h3>[Nome 2]</h3>
-                    <p>Cloud Infrastructure</p>
+                    <h3>Guilherme Caçuci</h3>
+                    <p>Product Owner (PO)</p>
                 </div>
-
                 <div class="tile member-card">
                     <div class="image-wrapper member-photo">
-                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+3" alt="Integrante 3">
+                        <img src="assets/imgs/arthur-capa.jpeg" alt="Integrante 3">
                     </div>
-                    <h3>[Nome 3]</h3>
-                    <p>UI/UX & Frontend</p>
+                    <h3>Arthur Rodrigues</h3>
+                    <p>Desenvolvedor</p>
                 </div>
-
                 <div class="tile member-card">
                     <div class="image-wrapper member-photo">
-                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+4" alt="Integrante 4">
+                        <img src="assets/imgs/matheus-capa.jpeg" alt="Integrante 4">
                     </div>
-                    <h3>[Nome 4]</h3>
-                    <p>Ciência de Dados</p>
+                    <h3>Matheus Araújo</h3>
+                    <p>Desenvolvedor</p>
                 </div>
-
                 <div class="tile member-card">
                     <div class="image-wrapper member-photo">
-                        <img src="https://placehold.co/300x200/e2e8f0/005088?text=Foto+5" alt="Integrante 5">
+                        <img src="assets/imgs/wesley-capa.png" alt="Integrante 5">
                     </div>
-                    <h3>[Nome 5]</h3>
-                    <p>Backend & Integrações</p>
+                    <h3>Wesley Amaral</h3>
+                    <p>Desenvolvedor</p>
                 </div>
             </div>
         </div>
@@ -298,21 +283,21 @@
             <div class="tiled-content">
                 <div class="tile" style="flex: 1;">
                     <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/18118194736174458392" alt="ESP32 microcontroller">
+                        <img src="assets/imgs/ESP32.png" alt="ESP32 microcontroller">
                     </div>
                     <h3>Hardware</h3>
                     <p>ESP32: Potência de processamento e baixo consumo.</p>
                 </div>
                 <div class="tile" style="flex: 1;">
                     <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
-                        <img src="https://placehold.co/400x200/005088/white?text=Render+Cloud" alt="Cloud Platform">
+                        <img src="assets/imgs/Cloud-sytem.png" alt="Cloud Platform">
                     </div>
                     <h3>Cloud</h3>
                     <p>Infraestrutura escalável para milhões de logs.</p>
                 </div>
                 <div class="tile" style="flex: 1;">
                     <div class="image-wrapper" style="height: 200px; margin-bottom: 20px;">
-                        <img src="https://placehold.co/400x200/10B981/white?text=Alerts+System" alt="Alerts">
+                        <img src="assets/imgs/webhooks.png" alt="Alerts">
                     </div>
                     <h3>Alertas</h3>
                     <p>Notificações instantâneas via Webhooks.</p>
@@ -350,91 +335,144 @@
         </div>
     </div>
 
-    <!-- ==========================================================
-        CONTROLES DE APRESENTAÇÃO
-    ========================================================== -->
-
+    <!-- CONTROLES DE APRESENTAÇÃO -->
     <div id="presentation-controls">
-
-        <button id="prevSlide">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-
-        <span id="slideCounter">
-            1 / 12
-        </span>
-
-        <button id="nextSlide">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
+        <button id="prevSlide"><i class="fa-solid fa-chevron-left"></i></button>
+        <span id="slideCounter">1 / 12</span>
+        <button id="nextSlide"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <script>
-
     document.addEventListener("DOMContentLoaded", () => {
 
-        const slides =
-            document.querySelectorAll(".slide-container");
-
+        const slides = document.querySelectorAll(".slide-container");
         let currentSlide = 0;
 
-        function showSlide(index){
+        /* ══════════════════════════════════════════════════════════════
+         * ESTRATÉGIA GERAL
+         * Usar transition (CSS) + mudança direta de propriedade via JS.
+         * Isso é universalmente suportado e não depende de var() dentro
+         * de @keyframes (que tem suporte incompleto em muitos browsers).
+         *
+         * Padrão para cada gráfico:
+         *   1. Desliga transition, reseta para o estado "zerado"
+         *   2. Força reflow (void el.offsetWidth)
+         *   3. Liga transition
+         *   4. Define a propriedade para o valor final → browser anima
+         * ══════════════════════════════════════════════════════════════ */
 
-            if(index < 0)
-                index = 0;
+        /* ──────────────────────────────────────────────────────────────
+         * SLIDE 6 — Barras horizontais
+         * Anima a propriedade `width` de 0% até o valor em data-pct.
+         * ────────────────────────────────────────────────────────────── */
+        function restartHorizBars() {
+            document.querySelectorAll(".bar-fill").forEach((bar, i) => {
+                const pct = (bar.dataset.pct || "100") + "%";
 
-            if(index >= slides.length)
-                index = slides.length - 1;
+                // 1. Reseta sem animação
+                bar.style.transition = "none";
+                bar.style.width = "0%";
 
-            currentSlide = index;
+                // 2. Reflow
+                void bar.offsetWidth;
 
-            slides[index].scrollIntoView({
-                behavior: "smooth",
-                block: "center"
+                // 3. Liga transition com delay em cascata (100ms por barra)
+                bar.style.transition = `width 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${i * 120}ms`;
+
+                // 4. Anima até o valor correto
+                bar.style.width = pct;
             });
-
-            document.getElementById("slideCounter")
-                .textContent =
-                `${index + 1} / ${slides.length}`;
         }
 
-        document
-            .getElementById("nextSlide")
-            .addEventListener("click", () => {
+        /* ──────────────────────────────────────────────────────────────
+         * SLIDE 7 — Barras verticais (temperatura)
+         * Faixa de referência: 2°C – 8°C | Altura máxima: 220px
+         * Anima transform: scaleY(0 → 1) com delay em cascata.
+         * ────────────────────────────────────────────────────────────── */
+        const TEMP_MIN  = 2;
+        const TEMP_MAX  = 8;
+        const BAR_MAX_H = 220;
 
-                showSlide(currentSlide + 1);
+        function restartVertBars() {
+            document.querySelectorAll(".bar-fill-live").forEach((bar, i) => {
+                const temp   = parseFloat(bar.dataset.temp) || 5;
+                const ratio  = Math.min(Math.max((temp - TEMP_MIN) / (TEMP_MAX - TEMP_MIN), 0), 1);
+                const height = Math.round(ratio * BAR_MAX_H);
 
+                // 1. Reseta altura e scaleY sem animação
+                bar.style.transition = "none";
+                bar.style.height     = height + "px";
+                bar.style.transform  = "scaleY(0)";
+
+                // 2. Reflow
+                void bar.offsetWidth;
+
+                // 3. Liga transition com delay em cascata (150ms por barra)
+                bar.style.transition = `transform 1s cubic-bezier(0.22, 1, 0.36, 1) ${i * 150}ms`;
+
+                // 4. Anima até visível
+                bar.style.transform = "scaleY(1)";
             });
+        }
 
-        document
-            .getElementById("prevSlide")
-            .addEventListener("click", () => {
+        /* ──────────────────────────────────────────────────────────────
+         * SLIDE 7 — Gráfico circular
+         * Circunferência = 2π × 110 ≈ 691.15
+         * Anima strokeDashoffset de C (vazio) até C×(1−pct/100).
+         * ────────────────────────────────────────────────────────────── */
+        const CIRC = 2 * Math.PI * 110; // 691.15…
 
-                showSlide(currentSlide - 1);
+        function restartCircle() {
+            const circle = document.querySelector(".circle-progress");
+            if (!circle) return;
 
-            });
+            const pct          = parseFloat(circle.dataset.pct) || 96;
+            const targetOffset = CIRC * (1 - pct / 100);
 
+            // 1. Reseta sem transição
+            circle.classList.remove("glowing");
+            circle.style.transition       = "none";
+            circle.style.strokeDasharray  = CIRC;
+            circle.style.strokeDashoffset = CIRC;
+
+            // 2. Reflow
+            void circle.offsetWidth;
+
+            // 3. Liga transition
+            circle.style.transition = "stroke-dashoffset 1.5s cubic-bezier(0.22, 1, 0.36, 1)";
+
+            // 4. Anima até o offset correspondente ao %
+            circle.style.strokeDashoffset = targetOffset;
+
+            // 5. Após a entrada, ativa o glow contínuo
+            setTimeout(() => circle.classList.add("glowing"), 1600);
+        }
+
+        /* ──────────────────────────────────────────────────────────────
+         * Navegação
+         * ────────────────────────────────────────────────────────────── */
+        function showSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= slides.length) index = slides.length - 1;
+            currentSlide = index;
+            slides[index].scrollIntoView({ behavior: "smooth", block: "center" });
+            document.getElementById("slideCounter").textContent = `${index + 1} / ${slides.length}`;
+
+            if (index === 5) restartHorizBars();   // slide 6
+            if (index === 6) {                     // slide 7
+                restartVertBars();
+                restartCircle();
+            }
+        }
+
+        document.getElementById("nextSlide").addEventListener("click", () => showSlide(currentSlide + 1));
+        document.getElementById("prevSlide").addEventListener("click", () => showSlide(currentSlide - 1));
         document.addEventListener("keydown", (e) => {
-
-            if(
-                e.key === "ArrowRight" ||
-                e.key === "PageDown"
-            ){
-                showSlide(currentSlide + 1);
-            }
-
-            if(
-                e.key === "ArrowLeft" ||
-                e.key === "PageUp"
-            ){
-                showSlide(currentSlide - 1);
-            }
-
+            if (e.key === "ArrowRight" || e.key === "PageDown") showSlide(currentSlide + 1);
+            if (e.key === "ArrowLeft"  || e.key === "PageUp")   showSlide(currentSlide - 1);
         });
 
     });
-
     </script>
 
 </body>
